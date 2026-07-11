@@ -1,0 +1,387 @@
+/* ============ 腰痛セルフチェック・ナビ ============ */
+/* モバイルファースト（375px基準）。ブランドカラーはnoteアイキャッチと統一 */
+
+:root {
+  --brand: #0f766e;
+  --brand-dark: #044947;
+  --accent: #facc15;
+  --text: #1f2937;
+  --text-sub: #6b7280;
+  --bg: #f6f8f8;
+  --card: #ffffff;
+  --line: #e5e7eb;
+  --urgent: #b45309;
+  --urgent-bg: #fffbeb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", system-ui, sans-serif;
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- トップ ---------- */
+.start-screen {
+  text-align: center;
+  padding-top: 32px;
+}
+
+.time-badge {
+  display: inline-block;
+  align-self: center;
+  background: var(--accent);
+  color: var(--brand-dark);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+.app-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--brand-dark);
+  line-height: 1.4;
+}
+
+.supervisor {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.start-lead {
+  font-size: 15px;
+  color: var(--text);
+  text-align: left;
+}
+
+.start-note {
+  font-size: 13px;
+  color: var(--text-sub);
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+/* ---------- 進捗 ---------- */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand);
+  min-width: 34px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 8px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* ---------- 質問・ボタン ---------- */
+.question {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  line-height: 1.5;
+  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.btn-label {
+  font-weight: 700;
+}
+
+.btn-sublabel {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 2px;
+}
+
+.btn-option:hover {
+  border-color: var(--brand);
+}
+
+.btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  align-items: center;
+  font-size: 17px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-link {
+  text-decoration: none;
+  display: flex;
+}
+
+/* チェックリスト */
+.btn-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-check .checkbox {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  background: #fff;
+}
+
+.btn-check.is-selected {
+  border-color: var(--brand);
+  background: #ecfdf5;
+}
+
+.btn-check.is-selected .checkbox {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+/* ---------- ナビ ---------- */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-sub);
+  padding: 12px 8px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.btn-text:hover {
+  color: var(--brand);
+}
+
+/* ---------- 結果 ---------- */
+.result-badge,
+.referral-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  background: var(--accent);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.result-title,
+.referral-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--brand-dark);
+  line-height: 1.45;
+}
+
+.result-suffix {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-sub);
+  display: block;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.membership-cta {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--brand);
+  text-decoration: none;
+  padding: 12px;
+  border: 1px dashed var(--brand);
+  border-radius: 10px;
+}
+
+.membership-cta:hover {
+  background: #ecfdf5;
+}
+
+.footnote {
+  font-size: 13px;
+  color: var(--text-sub);
+  text-align: center;
+}
+
+/* ---------- 受診案内 ---------- */
+.referral-text {
+  font-size: 15px;
+}
+
+.department-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--card);
+  border: 1.5px solid var(--brand);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.department-label {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.department-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+.referral-screen.is-urgent .referral-badge {
+  background: var(--urgent);
+  color: #fff;
+}
+
+.referral-screen.is-urgent .referral-title {
+  color: var(--urgent);
+}
+
+.referral-screen.is-urgent .department-box {
+  border-color: var(--urgent);
+  background: var(--urgent-bg);
+}
+
+.sign-list {
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.referral-note {
+  font-size: 13px;
+  color: var(--urgent);
+  font-weight: 700;
+}
+
+/* ---------- フッター ---------- */
+.footer {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.footer p {
+  font-size: 11px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
