@@ -91,11 +91,11 @@ export const NOTE_PROFILE_URL = "https://note.com/pt_ryuta";
 // noteガイドURL（未公開の記事は {NOTE_GUIDE_URL_x} のまま。公開後に差し替え）
 const NOTE_GUIDE_URL_1 = "https://note.com/pt_ryuta/n/n74f213bccb69"; // 坐骨神経痛
 const NOTE_GUIDE_URL_2 = "https://note.com/pt_ryuta/n/n43bb1e57562a"; // 脊柱管狭窄症
-const NOTE_GUIDE_URL_3 = "{NOTE_GUIDE_URL_3}"; // 寝起きの腰痛（ID56 公開後に差し替え）
+const NOTE_GUIDE_URL_3 = "https://note.com/pt_ryuta/n/n8fb29cf4bb8c"; // 寝起きの腰痛
 const NOTE_GUIDE_URL_4 = "https://note.com/pt_ryuta/n/n79ff949872f4"; // デスクワークで体が壊れる前に
-const NOTE_GUIDE_URL_5 = "{NOTE_GUIDE_URL_5}"; // 反り腰（ID63 公開後に差し替え）
+const NOTE_GUIDE_URL_5 = "https://note.com/pt_ryuta/n/n31d5523dacc2"; // 反り腰
 const NOTE_GUIDE_URL_6 = "https://note.com/pt_ryuta/n/nb94e01b1e579"; // ぎっくり腰
-const NOTE_GUIDE_URL_7 = "{NOTE_GUIDE_URL_7}"; // 慢性腰痛4週間プログラム（ID57 公開後に差し替え）
+const NOTE_GUIDE_URL_7 = "https://note.com/pt_ryuta/n/n801b016c9751"; // 慢性腰痛4週間プログラム
 
 export const START_NODE: NodeId = "step0";
 
